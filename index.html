@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salted Egg Yolk - Orange Cat World</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #dc6517;
+            --dark-brown: #634f42;
+            --light-brown: #c0a282;
+            --dark-gray: #42403d;
+            --bg: #fef7ea;
+            --white: #ffffff;
+            --orange-light: #f8b468;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background-color: var(--bg);
+            color: var(--dark-gray);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        header {
+            background-color: var(--primary);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-illustration {
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            transform: translateY(-50%);
+            font-size: 8rem;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--white);
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Quick Info Card */
+        .info-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .info-card {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .info-illustration {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .info-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .info-list {
+            list-style: none;
+            width: 100%;
+        }
+
+        .info-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--light-brown);
+            color: var(--dark-brown);
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-list span {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .intro-card {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .intro-card h2 {
+            color: var(--primary);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .intro-card h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--light-brown);
+            border-radius: 3px;
+        }
+
+        .intro-card p {
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+  
+
+        /* Fun Facts */
+        .fun-facts {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 4rem;
+        }
+
+        .fun-facts h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .fact-card {
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            background-color: var(--bg);
+            border-radius: var(--radius-sm);
+        }
+
+        .fact-card h3 {
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .fact-card p {
+            color: var(--dark-brown);
+        }
+
+        /* Photo Gallery */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .photo-item {
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .photo-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--primary);
+            z-index: 2;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .photo-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            background-color: var(--light-brown);
+            transition: var(--transition);
+        }
+
+        .photo-id {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            background-color: var(--light-brown);
+            transition: var(--transition);
+            border-radius: 50%;
+        }
+
+        .photo-item:hover .photo-img {
+            transform: scale(1.03);
+        }
+
+        .photo-caption {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .caption-title {
+            color: var(--dark-gray);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .caption-desc {
+            color: var(--dark-brown);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .footer-text {
+            opacity: 0.9;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            transform: scale(1.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .info-section {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 2rem 1.5rem;
+            }
+
+            .illustration-gallery, .facts-grid, .photo-gallery {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .fun-facts, .intro-card, .info-card {
+                padding: 1.5rem;
+            }
+
+            .hero-illustration {
+                display: none;
+            }
+        }
+.floating-cat {
+            position: fixed;
+            z-index: 50;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            pointer-events: none;
+            opacity: 0.4;
+            transition: transform 0.1s linear;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .info-section {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 2rem 1.5rem;
+            }
+
+            .illustration-gallery, .facts-grid, .photo-gallery {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .fun-facts, .intro-card, .info-card {
+                padding: 1.5rem;
+            }
+
+            .hero-illustration {
+                display: none;
+            }
+        }
+
+    
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🐱</span>
+                Salted Egg Yolk
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#facts">Fun Facts</a>
+                 <a href="#gallery">Gallery</a>
+            </div>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home">
+        <div class="hero-illustration">🐈</div>
+        <div class="hero-content">
+            <h1 class="hero-title">Salted Egg Yolk</h1>
+            <p class="hero-subtitle">My Lovely Orange Cat </p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- About Section -->
+        <section id="about" class="info-section">
+            <div class="info-card">
+                <div class="info-illustration">
+                    <img src="id.jpg" alt="Salted Egg Yolk ID" class="photo-id">
+                </div>
+                <h3>Basic Info</h3>
+                <ul class="info-list">
+                    <li><span>Name:</span> Salted Egg Yolk / 咸蛋黄</li>
+                    <li><span>Age:</span> 5 years old</li>
+                    <li><span>Breed:</span> Orange Tabby</li>
+                    <li><span>Gender:</span> Male</li>
+                    <li><span>Personality:</span> Playful & Cuddly</li>
+                    <li><span>Favorite Food:</span> Chicken！Chicken！</li>
+                </ul>
+            </div>
+            <div class="intro-card">
+                <h2>About My Orange Cat</h2>
+                <p>Salted Egg Yolk is a charming orange tabby cat who brings joy to every corner of our home. With his bright orange fur and playful personality, he's the heart of our family.</p>
+                <p>He loves exploring the house, napping in sunny spots, and chasing toys around the living room. His favorite pastime is curling up on laps for cuddles after a long day of adventures.</p>
+                <p>This website is dedicated to capturing all of Salted Egg Yolk's adorable moments, from his silly antics to his peaceful naps. I hope his cute face and playful spirit bring a smile to your day!</p>
+            </div>
+        </section>
+
+    
+
+        <!-- Fun Facts -->
+        <section id="facts" class="fun-facts">
+            <h2>Fun Facts About Salted Egg Yolk</h2>
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <h3>Morning Zoomies</h3>
+                    <p>Every morning at 6 AM sharp, he runs around the house at full speed for exactly 10 minutes.</p>
+                </div>
+                <div class="fact-card">
+                    <h3>Box Obsession</h3>
+                    <p>He prefers sitting in empty boxes over his expensive cat bed any day of the week.</p>
+                </div>
+                <div class="fact-card">
+                    <h3>Chicken Lover</h3>
+                    <p>He only loves chicken breast and never steals human food.</p>
+                </div>
+                <div class="fact-card">
+                    <h3>Dad's Little Shadow</h3>
+                    <p>He particularly enjoys being petted by my dad and even watches TV with him on the couch.</p>
+                </div>
+                <div class="fact-card">
+                    <h3>Nali Trimming Nemesis</h3>
+                    <p> It takes both my mom and me to trim his nails—if we're not careful, he'll dash away in a flash!</p>
+                </div>
+                <div class="fact-card">
+                    <h3>High Jumper</h3>
+                    <p>He can jump up to 6 feet high to reach the top of the bookshelf where his favorite spot is.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery -->
+        <section id="gallery">
+            <h2 class="gallery-title">Photo Gallery</h2>
+            <div class="photo-gallery">
+                <div class="photo-item">
+                    <img src="1.jpg" alt="Salted Egg Yolk Say Hi" class="photo-img">
+                    <div class="photo-caption">
+                        <h3 class="caption-title">Say Hi</h3>
+                        <p class="caption-desc">Nice to meet you!</p>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <img src="2.jpg" alt="Salted Egg Yolk On the top of the bookshelf" class="photo-img">
+                    <div class="photo-caption">
+                        <h3 class="caption-title">King of the Hill</h3>
+                        <p class="caption-desc">The top of the bookshelf is my favorite lookout spot — I can see everything from here. </p>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <img src="3.jpg" alt="Salted Egg Yolk Sleeping" class="photo-img">
+                    <div class="photo-caption">
+                        <h3 class="caption-title">Contortionist Cat</h3>
+                        <p class="caption-desc">Guess what I'm dreaming about… Chasing butterflies, or maybe just falling off the couch!</p>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <img src="4.jpg" alt="Salty Egg Yolk Licks Fur" class="photo-img">
+                    <div class="photo-caption">
+                        <h3 class="caption-title">Lickety-Split</h3>
+                        <p class="caption-desc">I take my beauty routine very seriously.</p>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <img src="5.jpg" alt="Salty Egg Yolk Climbs the Curtain" class="photo-img">
+                    <div class="photo-caption">
+                        <h3 class="caption-title">Curtain Climber</h3>
+                        <p class="caption-desc">Scaling the drapes is my superpower (sorry about the threads).</p>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <img src="6.jpg" alt="Salty Egg Yolk Paws Over Eyes" class="photo-img">
+                    <div class="photo-caption">
+                        <h3 class="caption-title">Paws Over Eyes</h3>
+                        <p class="caption-desc">Shhh… I sleep better when the world goes dark. Sweet dreams incoming!</p>
+                    </div>
+                </div>
+                 <div class="photo-item">
+                    <img src="7.jpg" alt="Salty Egg Yolk Wakes Up" class="photo-img">
+                    <div class="photo-caption">
+                        <h3 class="caption-title">Half-Asleep, Half-Awake</h3>
+                        <p class="caption-desc">Was someone calling me?... Or was I dreaming?</p>
+                    </div>
+                </div>
+                 <div class="photo-item">
+                    <img src="8.jpg" alt="Salty Egg Yolk Surrenders" class="photo-img">
+                    <div class="photo-caption">
+                        <h3 class="caption-title">Total Surrender</h3>
+                        <p class="caption-desc">All I want is sleep. Please, no more distractions.</p>
+                    </div>
+                </div>
+                 <div class="photo-item">
+                    <img src="9.jpg" alt="Salty Egg Yolk Robs Wealth" class="photo-img">
+                    <div class="photo-caption">
+                        <h3 class="caption-title">Toll Collector</h3>
+                        <p class="caption-desc">Paws pass! This cozy spot is under new management.</p>
+                    </div>
+                </div>
+                 <div class="photo-item">
+                    <img src="10.jpg" alt="Salty Egg Yolk is a circle" class="photo-img">
+                    <div class="photo-caption">
+                        <h3 class="caption-title">A Purr-fect Circle</h3>
+                        <p class="caption-desc">Look at me — I’ve mastered the art of the round curl!</p>
+                    </div>
+                </div>
+                 <div class="photo-item">
+                    <img src="11.jpg" alt="Salty Egg Yolk fights" class="photo-img">
+                    <div class="photo-caption">
+                        <h3 class="caption-title">Ninja Mode Activated</h3>
+                        <p class="caption-desc">Witness my lightning-fast paw-jitsu! No one stands a chance.</p>
+                    </div>
+                </div>
+                 <div class="photo-item">
+                    <img src="12.jpg" alt="Salty Egg Yolk winks" class="photo-img">
+                    <div class="photo-caption">
+                        <h3 class="caption-title">A Wink & A Smile</h3>
+                        <p class="caption-desc">So glad to meet you… sending love your way!
+</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+            <span>🐱</span> Salted Egg Yolk
+        </div>
+        <p class="footer-text">© All cute moments are reserved</p>
+        <p class="footer-text">Made by WU MUZI for my orange cat</p>
+        <div class="footer-social">
+            <a href="#">📷</a>
+            <a href="#">🐾</a>
+            <a href="#">❤️</a>
+        </div>
+    </footer>
+    
+ <script>
+ const cat = document.createElement('div');
+        cat.className = 'floating-cat';
+        cat.textContent = '🐱';
+        document.body.appendChild(cat);
+
+        let screenWidth = window.innerWidth;
+        let screenHeight = window.innerHeight;
+        let catSize = 50;
+        let x = Math.random() * (screenWidth - catSize);
+        let y = Math.random() * (screenHeight - catSize);
+        let dx = (Math.random() - 0.5) * 4;
+        let dy = (Math.random() - 0.5) * 4;
+
+        if (dx === 0) dx = 1;
+        if (dy === 0) dy = 1;
+
+        window.addEventListener('resize', () => {
+            screenWidth = window.innerWidth;
+            screenHeight = window.innerHeight;
+        });
+
+        function moveCat() {
+            x += dx;
+            y += dy;
+
+            if (x <= 0 || x >= screenWidth - catSize) {
+                dx = -dx;
+                x = Math.max(0, Math.min(x, screenWidth - catSize));
+            }
+
+            if (y <= 0 || y >= screenHeight - catSize) {
+                dy = -dy;
+                y = Math.max(0, Math.min(y, screenHeight - catSize));
+            }
+
+            cat.style.left = `${x}px`;
+            cat.style.top = `${y}px`;
+            requestAnimationFrame(moveCat);
+        }
+
+        moveCat();
+     </script>
+</body>
+</html>
